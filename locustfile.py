@@ -24,7 +24,7 @@ class UserBehavior(TaskSet):
         team = random_subset(self.teams, 1)[0]
         keys = "[[\"{}\", \"{}\"]]".format(team, id)
         self.client.get('/test/_design/api/_view/all_docs',
-            params={'include_docs': "true", 'keys': keys},
+            params={'include_docs': "false", 'keys': keys},
             auth = (os.environ['CLOUDANT_USERNAME'], os.environ['CLOUDANT_PASSWORD']))
         # print(self.client.get_view_raw_result('_design/api', 'all_docs', include_docs=True, keys=[[team, id]]))
 
